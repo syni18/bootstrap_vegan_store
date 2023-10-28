@@ -124,6 +124,7 @@
         </p>
         <ul class="p-0">
           <li class="list-unstyled">
+            <!-- <samp class="fw-bolder">Feedback Form:</samp> -->
             <!-- Button trigger modal -->
             <button
               type="button"
@@ -135,7 +136,29 @@
             </button>
           </li>
         </ul>
-          
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+          <div
+            id="liveToast"
+            class="toast hide"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+          >
+            <div class="toast-header">
+              <img src="..." class="rounded me-2" alt="..." />
+              <strong class="me-auto">Bootstrap</strong>
+              <small>11 mins ago</small>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="toast"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="toast-body">Hello, world! This is a toast message.</div>
+          </div>
+        </div>
+
         <form
           class="modal fade mt-5"
           id="staticBackdrop"
@@ -219,7 +242,7 @@
                 <button
                   type="button"
                   class="btn btn-dark"
-                  id="submitBtn"
+                  id="submitFeedbackButton"
                 >
                   Submit
                 </button>
@@ -240,8 +263,8 @@
         </p>
       </div>
     </div>
-    <div class="bg-dark m-auto mt-5 text-white d-flex justify-content-between">
-      <div class="">
+    <div class="bg-dark mt-5 text-white p-5 d-flex justify-content-between">
+      <div class="left">
         <a class="navbar-brand text-uppercase lead" href="/">Vegan Store</a>
         <ul class="list-unstyled mt-2">
           <li><samp class="fw-bolder">Email:</samp> info@veganfoodstore.com</li>
@@ -253,7 +276,7 @@
           </li>
         </ul>
       </div>
-      <div class="">
+      <div class="right">
         <h5>Social Links</h5>
         <ul class="list-unstyled mt-2">
           <li>
@@ -280,7 +303,6 @@
     const submitButton = document.getElementById('submitBtn');
 
     submitButton.addEventListener('click', function(event) {
-
         event.preventDefault();
         const firstnameField = document.getElementById('firstNameControl');
         const lastnameField = document.getElementById('lastNameControl');
@@ -289,16 +311,16 @@
 
         const firstnameValue = firstnameField.value.trim();
         const lastnameValue = lastnameField.value.trim();
+        
         const emailValue = emailField.value.trim();
         const messageValue = messageField.value.trim();
 
-        if (firstnameValue === '' || lastnameValue === '' || emailValue === '' || messageValue === '') {
+        if (nameValue === '' || emailValue === '' || messageValue === '') {
             alert('Please fill out all required fields before submitting the form.');
         } else {
             alert('Your message has been sent successfully!');
 
-            firstnameField.value = '';
-            lastnameField.value = '';
+            nameField.value = '';
             emailField.value = '';
             messageField.value = '';
         }

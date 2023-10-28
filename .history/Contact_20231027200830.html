@@ -124,6 +124,7 @@
         </p>
         <ul class="p-0">
           <li class="list-unstyled">
+            <!-- <samp class="fw-bolder">Feedback Form:</samp> -->
             <!-- Button trigger modal -->
             <button
               type="button"
@@ -135,8 +136,7 @@
             </button>
           </li>
         </ul>
-          
-        <form
+        <div
           class="modal fade mt-5"
           id="staticBackdrop"
           data-bs-backdrop="static"
@@ -144,7 +144,7 @@
           tabindex="-1"
           aria-labelledby="staticBackdropLabel"
           aria-hidden="true"
-         >
+        >
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -216,17 +216,11 @@
                 >
                   Close
                 </button>
-                <button
-                  type="button"
-                  class="btn btn-dark"
-                  id="submitBtn"
-                >
-                  Submit
-                </button>
+                <button type="button" class="btn btn-dark" id="submitFeedbackButton">Submit</button>
               </div>
             </div>
           </div>
-        </form>
+        </div>
       </div>
 
       <div class="mt-3">
@@ -240,69 +234,43 @@
         </p>
       </div>
     </div>
-    <div class="bg-dark m-auto mt-5 text-white d-flex justify-content-between">
-      <div class="">
-        <a class="navbar-brand text-uppercase lead" href="/">Vegan Store</a>
+    <div class="bg-dark mt-5 text-white p-5 d-flex justify-content-between">
+    <div class="left">
+        <a class="navbar-brand text-uppercase lead" href="/"
+          >Vegan Store</a
+        >
         <ul class="list-unstyled mt-2">
           <li><samp class="fw-bolder">Email:</samp> info@veganfoodstore.com</li>
           <li><samp class="fw-bolder">Phone:</samp> +1-987-654-3210</li>
           <li>
-            <address class="fw-bolder">
-              Address: 123 Green Street 5th-block, Veganville, VGN 56789
-            </address>
+            <address class="fw-bolder">Address: 123 Green Street 5th-block,
+            Veganville, VGN 56789</address> 
           </li>
         </ul>
-      </div>
-      <div class="">
+    </div>
+    <div class="right">
         <h5>Social Links</h5>
         <ul class="list-unstyled mt-2">
-          <li>
-            <samp class="fw-bolder text-secondary">Facebook:</samp>
-            @VeganFoodStore
-          </li>
-          <li>
-            <samp class="fw-bolder text-secondary">Twitter:</samp>
-            @VeganFoodTweets
-          </li>
-          <li>
-            <samp class="fw-bolder text-secondary">Instagram:</samp>
-            @VeganFoodPics
-          </li>
-          <li>
-            <samp class="fw-bolder text-secondary">Reddit:</samp>
-            r/VeganFoodStore
-          </li>
+          <li><samp class="fw-bolder text-secondary">Facebook:</samp> @VeganFoodStore</li>
+          <li><samp class="fw-bolder text-secondary">Twitter:</samp> @VeganFoodTweets</li>
+          <li><samp class="fw-bolder text-secondary">Instagram:</samp> @VeganFoodPics</li>
+          <li><samp class="fw-bolder text-secondary">Reddit:</samp> r/VeganFoodStore</li>
         </ul>
-      </div>
     </div>
+</div>
 
-    <script>
-    const submitButton = document.getElementById('submitBtn');
+<script>
+  // Get a reference to the submit button
+  const submitButton = document.getElementById('submitFeedbackButton');
 
-    submitButton.addEventListener('click', function(event) {
+  // Get a reference to the toast element
+  const toast = new bootstrap.Toast(document.querySelector('.toast'));
 
-        event.preventDefault();
-        const firstnameField = document.getElementById('firstNameControl');
-        const lastnameField = document.getElementById('lastNameControl');
-        const emailField = document.getElementById('exampleFormControlInput1');
-        const messageField = document.getElementById('exampleFormControlTextarea1');
-
-        const firstnameValue = firstnameField.value.trim();
-        const lastnameValue = lastnameField.value.trim();
-        const emailValue = emailField.value.trim();
-        const messageValue = messageField.value.trim();
-
-        if (firstnameValue === '' || lastnameValue === '' || emailValue === '' || messageValue === '') {
-            alert('Please fill out all required fields before submitting the form.');
-        } else {
-            alert('Your message has been sent successfully!');
-
-            firstnameField.value = '';
-            lastnameField.value = '';
-            emailField.value = '';
-            messageField.value = '';
-        }
-    });
+  // Add an event listener to the submit button
+  submitButton.addEventListener('click', () => {
+    // Show the toast message
+    toast.show();
+  });
 </script>
 
     <script

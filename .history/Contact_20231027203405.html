@@ -240,8 +240,8 @@
         </p>
       </div>
     </div>
-    <div class="bg-dark m-auto mt-5 text-white d-flex justify-content-between">
-      <div class="">
+    <div class="bg-dark mt-5 text-white p-5 d-flex justify-content-between">
+      <div class="left">
         <a class="navbar-brand text-uppercase lead" href="/">Vegan Store</a>
         <ul class="list-unstyled mt-2">
           <li><samp class="fw-bolder">Email:</samp> info@veganfoodstore.com</li>
@@ -253,7 +253,7 @@
           </li>
         </ul>
       </div>
-      <div class="">
+      <div class="right">
         <h5>Social Links</h5>
         <ul class="list-unstyled mt-2">
           <li>
@@ -278,6 +278,7 @@
 
     <script>
     const submitButton = document.getElementById('submitBtn');
+    const feedbackModal = new bootstrap.Modal(document.getElementById('su'));
 
     submitButton.addEventListener('click', function(event) {
 
@@ -301,6 +302,9 @@
             lastnameField.value = '';
             emailField.value = '';
             messageField.value = '';
+
+            // Close the modal
+            feedbackModal.hide();
         }
     });
 </script>
